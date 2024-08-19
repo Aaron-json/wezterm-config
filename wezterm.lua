@@ -16,14 +16,23 @@ local backgrounds = {
             },
             hsb = { brightness = 0.04 },
         }
+    },
+    background3 = {
+        {
+            source = {
+                File = wezterm.config_dir .. '/images/background3.jpg'
+            },
+            hsb = { brightness = 0.08 },
+
+        }
     }
 }
 return {
     font_dirs = { wezterm.config_dir .. "/fonts" },
     font_size = 12,
     font = wezterm.font_with_fallback({
-        { family = 'Cascadia Code'},
+        { family = 'Cascadia Code' },
         { family = 'JetBrains Mono' },
     }),
-    background = backgrounds.background2
+    background = backgrounds.background3
 }
