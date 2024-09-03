@@ -14,7 +14,7 @@ local backgrounds = {
             source = {
                 File = wezterm.config_dir .. '/images/background2.jpg',
             },
-            hsb = { brightness = 0.04 },
+            hsb = { brightness = 0.08 },
         }
     },
     background3 = {
@@ -22,17 +22,27 @@ local backgrounds = {
             source = {
                 File = wezterm.config_dir .. '/images/background3.jpg'
             },
-            hsb = { brightness = 0.08 },
+            hsb = { brightness = 0.06 },
 
         }
     }
 }
-return {
-    font_dirs = { wezterm.config_dir .. "/fonts" },
-    font_size = 12,
-    font = wezterm.font_with_fallback({
-        { family = 'Cascadia Code' },
-        { family = 'JetBrains Mono' },
-    }),
-    background = backgrounds.background3
-}
+
+local config = {}
+
+config.font_dirs = { wezterm.config_dir .. "/fonts" }
+
+config.font_size = 12
+
+config.font = wezterm.font_with_fallback({
+    { family = 'Cascadia Code' },
+    { family = 'JetBrains Mono' },
+})
+
+if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+    config.default_prog = { 'powershell.exe' }
+end
+
+config.background = backgrounds.background3
+
+return config
